@@ -48,49 +48,52 @@ window.onresize = function() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  const items = document.querySelectorAll('.item');
-  const leftButton = document.querySelector('.carousel-btn.left');
-  const rightButton = document.querySelector('.carousel-btn.right');
-  let currentItem = 0;
+    const items = document.querySelectorAll('.item');
+    const leftButton = document.querySelector('.carousel-btn.left');
+    const rightButton = document.querySelector('.carousel-btn.right');
+    let currentItem = 0;
 
-  leftButton.addEventListener('click', function () {
-      if (currentItem > 0) {
-          currentItem--;
-          updateCarousel();
-      }
-  });
+    leftButton.addEventListener('click', function () {
+        if (currentItem > 0) {
+            currentItem--;
+            updateCarousel();
+        }
+    });
 
-  rightButton.addEventListener('click', function () {
-      if (currentItem < items.length - 1) {
-          currentItem++;
-          updateCarousel();
-      }
-  });
+    rightButton.addEventListener('click', function () {
+        if (currentItem < items.length - 1) {
+            currentItem++;
+            updateCarousel();
+        }
+    });
 
-  function updateCarousel() {
-      const offset = -currentItem * 500; // 500 is the width of each item
-      items.forEach(item => {
-          item.style.transform = `translateX(${offset}px)`;
-      });
-      updateButtons();
-  }
+    function updateCarousel() {
+        const itemWidth = document.querySelector('.carousel-items').offsetWidth; // Get the width of the carousel
+        const offset = -currentItem * itemWidth;
+        items.forEach(item => {
+            item.style.transform = `translateX(${offset}px)`;
+        });
+        updateButtons();
+    }
 
-  function updateButtons() {
-      if (currentItem === 0) {
-          leftButton.classList.add('active');
-      } else {
-          leftButton.classList.remove('active');
-      }
-      if (currentItem === items.length - 1) {
-          rightButton.classList.add('active');
-      } else {
-          rightButton.classList.remove('active');
-      }
-  }
+    function updateButtons() {
+        if (currentItem === 0) {
+            leftButton.classList.add('active');
+            rightButton.classList.remove('active');
+        } else if (currentItem === items.length - 1) {
+            rightButton.classList.add('active');
+            leftButton.classList.remove('active');
+        } else {
+            leftButton.classList.remove('active');
+            rightButton.classList.remove('active');
+        }
+    }
 
-  // Initial update
-  updateButtons();
+    // Initial update
+    updateButtons();
+    updateCarousel(); // Ensure carousel is correctly positioned on load
 });
+
 
 function updateSymbol() {
     const heading = document.getElementById('service-heading');
