@@ -865,7 +865,7 @@ body{
         width: 10%;
         height: 30vh;
         position: fixed;
-        top: 31px;
+        top: 90px;
         left: -100px;
         background: linear-gradient(180deg, rgb(219, 11, 132), white);
         display: block;
@@ -887,20 +887,25 @@ body{
         color: rgb(8, 184, 102);
     }
     
-    #navbar .navbar-extra li {
+    #navbar .navbar-extra li{
+        width: 30px;
+        height: 30px;
+        padding: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
         position: fixed;
-        top: 10px;
-        left: 0;
+        top: 60px;
+        left: 10px;
         z-index: 99999999999;
+        background: rgb(194, 194, 194);
+        border-radius: 0 25px 25px 25px;
     }
     
     #menu-button {
         cursor: pointer;
-        color: rgb(4, 173, 75);
-        transition: 0.3s ease;
+        color: rgb(255, 0, 0);
+        transition: 0.3s ease-in-out;
     }
     
     #menu-button.active {

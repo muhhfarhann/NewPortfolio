@@ -1,3 +1,23 @@
+<?php 
+require 'functions.php';
+
+if (isset($_POST["submit"])) {
+
+    if(insert($_POST) > 0){
+        echo "
+        <script>
+            alert('Success!');
+        </script>
+        ";
+    } else {
+        echo "
+        <script>
+            alert('Failed!');
+        </script>
+        ";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -266,8 +286,9 @@
                     <label for="contactForm">
                         Drop Your Message here!
                     </label>
-                    <textarea name="message" id="" cols="50" rows="10" class="rounded" placeholder="Write here">
+                    <textarea name="message" id="" cols="50" rows="10" class="rounded">
                     </textarea>
+                    <button type="submit" name="submit">Submit</button>
                 </form>
             </div>
         </div>
