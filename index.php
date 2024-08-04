@@ -1,9 +1,12 @@
 <?php 
 require 'functions.php';
+$alert = false;
 
 if (isset($_POST["submit"])) {
 
-    if(insert($_POST) > 0){
+    if (isset($_POST["message"]) && strlen($_POST["message"]) === 26) {
+        echo $alert = true;
+    } elseif (isset($_POST["message"]) && insert($_POST) > 0) {
         echo "
         <script>
             alert('Success!');
@@ -16,7 +19,10 @@ if (isset($_POST["submit"])) {
         </script>
         ";
     }
+    
+
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -287,9 +293,8 @@ if (isset($_POST["submit"])) {
                     <label for="contactForm">
                         Drop Your Message here!
                     </label>
-                    <textarea name="message" id="" cols="50" rows="10" class="rounded">
-                    </textarea>
-                    <button type="submit" name="submit">Submit</button>
+                    <textarea name="message" id="message" cols="50" rows="10" class="rounded">Tulis pesan anda disini...</textarea>
+                    <button type="submit" name="submit" class="submit">Submit</button>
                 </form>
             </div>
         </div>
@@ -304,6 +309,16 @@ if (isset($_POST["submit"])) {
         </div>
     </section>
     <!-- Contact End-->
+
+    <!-- alert start -->
+    <div class="alert <?php if($alert) echo 'visible' ; ?> ">
+        <div class="alert-message">
+            <i data-feather="alert-triangle"></i>
+            <i data-feather="x-octagon" id="x"></i>
+            <p>Masukan Pesan Terlebih Dahulu!</p>
+        </div>
+    </div>
+    <!-- alert end -->
 
 <!-- Data Aos -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

@@ -94,18 +94,15 @@ document.addEventListener('DOMContentLoaded', function () {
     updateCarousel(); // Ensure carousel is correctly positioned on load
 });
 
+// alert
+document.addEventListener('DOMContentLoaded', function () {
+    const closeButton = document.getElementById('x');
+    const alertBox = document.querySelector('.alert');
 
-function updateSymbol() {
-    const heading = document.getElementById('service-heading');
-    if (window.innerWidth <= 500) {
-        heading.innerHTML = 'Service &#x2193;'; // Unicode for down arrow
-    } else {
-        heading.innerHTML = 'Service &raquo;'; // Unicode for raquo
-    }
-}
+    closeButton.addEventListener('click', function () {
+        alertBox.classList.remove('visible');
+    });
 
-// Initial check
-updateSymbol();
+    feather.replace();
+});
 
-// Update on resize
-window.addEventListener('resize', updateSymbol)
