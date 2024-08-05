@@ -96,13 +96,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // alert
 document.addEventListener('DOMContentLoaded', function () {
-    const closeButton = document.getElementById('x');
-    const alertBox = document.querySelector('.alert');
+            const closeButton = document.getElementById('x');
+            const alertBox = document.querySelector('.alert');
+            const form = document.getElementById('myForm');
 
-    closeButton.addEventListener('click', function () {
-        alertBox.classList.remove('visible');
-    });
+            closeButton.addEventListener('click', function () {
+                alertBox.classList.remove('visible');
+            });
 
-    feather.replace();
-});
+            form.addEventListener('submit', function (event) {
+                const inputField = document.getElementById('inputField');
+                
+                if (inputField.value.trim() === '') {
+                    event.preventDefault(); // Prevent form submission
+                    
+                    if (window.innerWidth > 500) {
+                        alertBox.classList.add('visible');
+                    } else {
+                        alert('Pesan tidak boleh kosong');
+                    }
+                }
+            });
+
+            feather.replace();
+        });
 
