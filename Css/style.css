@@ -1669,7 +1669,7 @@ body{
     .alert {
         width: 100%;
         height: 100%;
-        display: none;
+        display: flex;
         justify-content: center;
         align-items: center;
         position: fixed;
@@ -1776,7 +1776,7 @@ body{
     }
 }
 
-@media (max-width: 500px) {  
+@media (max-width: 600px) {  
 
     html{
 
@@ -1786,7 +1786,7 @@ body{
 
     body{
 
-        width: 500px;
+        width: 600px;
 
     }
 
@@ -2549,7 +2549,7 @@ body{
     }
     
     .alert.visible{
-        display: none;
+        display: flex;
     }
     
     .alert .alert-message {
