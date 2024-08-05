@@ -293,7 +293,7 @@ if (isset($_POST["submit"])) {
                     <label for="contactForm">
                         Drop Your Message here!
                     </label>
-                    <textarea name="message" id="message" cols="50" rows="10" class="rounded">Tulis pesan anda disini...</textarea>
+                    <textarea name="message" id="message" cols="50" rows="10" class="rounded" id="inputField">Tulis pesan anda disini...</textarea>
                     <button type="submit" name="submit" class="submit">Submit</button>
                 </form>
             </div>
